@@ -1,5 +1,7 @@
 # Cross compile arm on x86 container with rancher
 
+## Run
+
 ```bash
 # open rancher
 wsl -d rancher-desktop
@@ -16,6 +18,13 @@ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
 # test it is working
 docker run --rm -t arm64v8/ubuntu uname -m
+```
+
+## Cross compile
+
+```bash
+# cross compile locally
+docker buildx build --platform linux/arm64 -t test .
 ```
 
 ## References:
